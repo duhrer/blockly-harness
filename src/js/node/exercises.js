@@ -11,14 +11,15 @@ blockly.harness.exercises = [
         "description": "This page is a sandbox where you can try out all the built-in Blockly functions.",
         "harnessOptions": {
             displayXmlOnChange: true,
-            "blocklyOptions": {
+            blocklyOptions: {
             }
         }
     },
     {
         "title": "2: Guess the PIN",
-        "description": "Create a function that chooses a random four-digit random PIN.  Create another that guesses the PIN.",
+        "description": "Create a function that chooses a random four-digit random PIN.  Create another that guesses the PIN. At the end of your run, a variable called 'guess' should be set to the password value.",
         "harnessOptions": {
+            returnValues: ["password", "guess"],
             "blocklyOptions": {
                 "startBlocks": {
                     "id": "startBlocks",
@@ -61,46 +62,65 @@ blockly.harness.exercises = [
                 "startBlocks": {
                     "id": "startBlocks",
                     "style": "display: none",
-                    "blocks": [{
-                        "type": "variables_set",
-                        "id": "start-block-1",
-                        "fields": [{ name: "VAR", "": "chars"}],
-                        "values": [{
-                            "name": "VALUE",
-                            "blocks": [{
-                                "type": "lists_create_with",
-                                "mutations": [{ "items": 26 }],
-                                "values": [
-                                    { name: "ADD0", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "a"}]}]},
-                                    { name: "ADD1", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "b"}]}]},
-                                    { name: "ADD2", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "c"}]}]},
-                                    { name: "ADD3", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "d"}]}]},
-                                    { name: "ADD4", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "e"}]}]},
-                                    { name: "ADD5", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "f"}]}]},
-                                    { name: "ADD6", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "g"}]}]},
-                                    { name: "ADD7", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "h"}]}]},
-                                    { name: "ADD8", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "i"}]}]},
-                                    { name: "ADD9", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "j"}]}]},
-                                    { name: "ADD10", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "k"}]}]},
-                                    { name: "ADD11", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "l"}]}]},
-                                    { name: "ADD12", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "m"}]}]},
-                                    { name: "ADD13", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "n"}]}]},
-                                    { name: "ADD14", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "o"}]}]},
-                                    { name: "ADD15", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "p"}]}]},
-                                    { name: "ADD16", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "q"}]}]},
-                                    { name: "ADD17", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "r"}]}]},
-                                    { name: "ADD18", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "s"}]}]},
-                                    { name: "ADD19", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "t"}]}]},
-                                    { name: "ADD20", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "u"}]}]},
-                                    { name: "ADD21", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "v"}]}]},
-                                    { name: "ADD22", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "w"}]}]},
-                                    { name: "ADD23", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "x"}]}]},
-                                    { name: "ADD24", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "y"}]}]},
-                                    { name: "ADD25", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "z"}]}]}
-                                ]
+                    "blocks": [
+                        {
+                            "type": "variables_set",
+                            "id": "start-block-1",
+                            "x": 245,
+                            "y": 0,
+                            "fields": [{ name: "VAR", "": "chars"}],
+                            "values": [{
+                                "name": "VALUE",
+                                "blocks": [{
+                                    "type": "lists_create_with",
+                                    "mutations": [{ "items": 26 }],
+                                    "values": [
+                                        { name: "ADD0", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "a"}]}]},
+                                        { name: "ADD1", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "b"}]}]},
+                                        { name: "ADD2", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "c"}]}]},
+                                        { name: "ADD3", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "d"}]}]},
+                                        { name: "ADD4", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "e"}]}]},
+                                        { name: "ADD5", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "f"}]}]},
+                                        { name: "ADD6", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "g"}]}]},
+                                        { name: "ADD7", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "h"}]}]},
+                                        { name: "ADD8", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "i"}]}]},
+                                        { name: "ADD9", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "j"}]}]},
+                                        { name: "ADD10", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "k"}]}]},
+                                        { name: "ADD11", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "l"}]}]},
+                                        { name: "ADD12", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "m"}]}]},
+                                        { name: "ADD13", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "n"}]}]},
+                                        { name: "ADD14", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "o"}]}]},
+                                        { name: "ADD15", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "p"}]}]},
+                                        { name: "ADD16", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "q"}]}]},
+                                        { name: "ADD17", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "r"}]}]},
+                                        { name: "ADD18", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "s"}]}]},
+                                        { name: "ADD19", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "t"}]}]},
+                                        { name: "ADD20", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "u"}]}]},
+                                        { name: "ADD21", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "v"}]}]},
+                                        { name: "ADD22", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "w"}]}]},
+                                        { name: "ADD23", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "x"}]}]},
+                                        { name: "ADD24", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "y"}]}]},
+                                        { name: "ADD25", "blocks": [{ type: "text", fields: [{ name: "TEXT", "": "z"}]}]}
+                                    ]
+                                }]
                             }]
-                        }]
-                    }]
+                        },
+                        {
+                            type: "procedures_defreturn",
+                            "x": 0,
+                            "y": 0,
+                            fields: [{name: "NAME", "": "rot13"}],
+                            values: [{ name: "RETURN", blocks: [{ type: "variables_get", fields: [{ name: "VAR", "": "rot13"}]}]}],
+                            statements: [{
+                                name: "STACK",
+                                blocks: [{
+                                    type: "variables_set",
+                                    fields: [{name: "VAR", "": "rot13"}],
+                                    values: [{name: "VALUE", blocks: [{type: "text", fields: [{name: "TEXT"}]}]}]
+                                }]
+                            }]
+                        }
+                    ]
                 }
             }
         }
