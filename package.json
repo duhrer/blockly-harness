@@ -1,0 +1,21 @@
+{
+    "name": "blockly-harness",
+    "version": "1.0.0",
+    "description": "A harness to generate a static site containing a series of exercises to be completed using Blockly.",
+    "main": "index.js",
+    "scripts": {
+        "test": "node tests/all-tests.js"
+    },
+    "author": "Tony Atkins <tony@raisingthefloor.org>",
+    "license": "BSD-3-Clause",
+    "dependencies": {
+        "blockly": "1.0.0",
+        "gpii-handlebars": "1.1.1-dev.20180605T123729Z.cfe452f",
+        "infusion": "3.0.0-dev.20180312T184056Z.e4d2974d2",
+        "mkdirp": "0.5.1"
+    },
+    "devDependencies": {
+        "node-jqunit": "1.1.8",
+        "xml-mapping": "1.7.1"
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "id": "startBlocks",
+    "style": "display: none",
+    "blocks": [{
+        "type": "controls_if",
+        "inline": false,
+        "x": 20,
+        "y": 20,
+        "mutations": [{ "else": 1}],
+        "values": [
+            {
+                "name": "IF0",
+                "blocks": [{
+                    "type": "logic_compare",
+                    "inline": true,
+                    "fields": [{
+                        "name": "OP",
+                        "": "EQ"
+                    }],
+                    "values": [
+                        {
+                            "name": "A",
+                            "blocks": [{
+                                "type": "math_arithmetic",
+                                "inline": true,
+                                "fields": [{ "name": "OP", "": "MULTIPLY"}],
+                                "values": [
+                                    {
+                                        "name": "A",
+                                        "blocks": [{
+                                            "type": "math_number",
+                                            "fields": [{ "name": "NUM", "": 6}]
+                                        }]
+                                    },
+                                    {
+                                        "name": "B",
+                                        "blocks": [{
+                                            "type": "math_number",
+                                            "fields": [{ "name": "NUM", "": 7}]
+                                        }]
+                                    }
+                                ]
+                            }]
+                        },
+                        {
+                            "name": "B",
+                            "blocks": [{
+                                "type": "math_number",
+                                "fields": [{ "name": "NUM", "": 42}]
+                            }]
+                        }
+                    ]
+                }]
+            }
+        ],
+        "statements": [
+            {
+                "name": "DO0",
+                "blocks": [{
+                    "type": "text_print",
+                    "inline": false,
+                    "values": [{
+                        "name": "TEXT",
+                        "blocks": [{
+                            "type": "text",
+                            "fields": [{ "name": "TEXT", "": "Don't panic"}]
+                        }]
+                    }]
+                }]
+            },
+            {
+                "name": "ELSE",
+                "blocks": [{
+                    "type": "text_print",
+                    "inline": false,
+                    "values": [{
+                        "name": "TEXT",
+                        "blocks": [{
+                            "type": "text",
+                            "fields": [{ "name": "TEXT", "": "Panic" }]
+                        }]
+                    }]
+                }]
+            }
+        ]
+    }]
+}

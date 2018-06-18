@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All Exercises</title>
+    </head>
+    <body>
+        <h1>All Exercises</h1>
+
+        <table>
+            <thead>
+            <tr><th>Exercise</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+            {{#each exercises}}
+                <tr><td><a href="{{path}}">{{title}}</a></td><td>{{description}}</td></tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>
